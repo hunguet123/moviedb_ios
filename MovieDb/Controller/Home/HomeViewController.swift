@@ -8,9 +8,8 @@
 import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    @IBOutlet weak var containerViewTabMovie: UIView!
     //set list movie 
-    private var list = ["movie", "movie", "movie"]
+    private var list = ["movie", "movie", "movie", "movie", "movie", "movie","movie", "movie", "movie"]
     
     
     

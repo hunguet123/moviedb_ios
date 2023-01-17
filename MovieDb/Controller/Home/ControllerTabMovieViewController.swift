@@ -27,8 +27,7 @@ class ControllerTabMovieViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.contentSize = CGSize(width: containerView.frame.width*4, height: 0)
-        view.addSubview(scrollView)
+        setUpView()
         setUpViewForTabMovie()
     }
     
@@ -62,6 +61,12 @@ class ControllerTabMovieViewController: UIViewController, UIScrollViewDelegate {
         nowplayingVC.currentList = listUpcoming
         topRatedVC.currentList = listUpcoming
         popularVC.currentList = listUpcoming
+    }
+    
+    private func setUpView() {
+        scrollView.contentSize = CGSize(width: containerView.frame.width*4, height: 0)
+        view.addSubview(scrollView)
+        uiSegmentControlTabMovie.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
     }
     
     private func addChildVCs() {
