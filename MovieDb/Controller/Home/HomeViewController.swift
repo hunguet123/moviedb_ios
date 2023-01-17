@@ -8,15 +8,16 @@
 import UIKit
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    @IBOutlet weak var collectionViewMovieNowPlaying: UICollectionView!
-    
+    @IBOutlet weak var containerViewTabMovie: UIView!
+    //set list movie 
     private var list = ["movie", "movie", "movie"]
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return list.count
@@ -34,5 +35,5 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         // code in here
         
     }
-    
+        
 }
