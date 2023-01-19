@@ -8,15 +8,16 @@
 import Foundation
 
 class HomeViewModel {
-    var listMovie: [Movie] = []
+    var movies: Observable<[Movie]> = Observable(nil)
+    var error: Observable<Error> = Observable(nil)
     
     func getTrendingMovie(page: Int) {
         ApiCaller.getTrendingMovies(page: page) { result in
             switch result {
             case .success(let data):
-                self.listMovie = data.results
+                self.movies.value = data.results
             case .failure(let error):
-                print(error)
+                self.error.value = error
         }
         }
     }

@@ -10,16 +10,15 @@ import Foundation
 class TabMovieViewModel {
     
     var movies: Observable<[Movie]> = Observable(nil)
-    var listMovie: [Movie] = []
+    var error: Observable<Error> = Observable(nil)
     
     func getTabMovies(nameTabMovie: String, page: Int) {
         ApiCaller.getTabMovies(nameTabMovie: nameTabMovie, page: page) { result in
             switch result {
             case .success(let data):
-                self.listMovie = data.results
-                self.movies.value = self.listMovie
+                self.movies.value = data.results
             case .failure(let error):
-                print(error)
+                self.error.value = error
         }
     }
     }
