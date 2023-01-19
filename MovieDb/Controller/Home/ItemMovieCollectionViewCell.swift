@@ -10,5 +10,4 @@ import UIKit
 class ItemMovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageMovie: UIImageView!
     @IBOutlet weak var labelNumber: UILabel!
-    
 }

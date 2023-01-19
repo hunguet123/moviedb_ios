@@ -6,25 +6,48 @@
 //
 
 import UIKit
+import SDWebImage
 
-class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    //set list movie 
-    private var list = ["movie", "movie", "movie", "movie", "movie", "movie","movie", "movie", "movie"]
+class HomeViewController: UIViewController {
+    //set list movie
+    //what is list???
+    //todo: rename for meaning
+    private var listMovie: [Movie] = []
+    @IBOutlet weak var collectionView: UICollectionView!
     
     
-    
+    //viewModel
+    var viewModel = HomeViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.getTrendingMovie(page: 1)
+    }
+        
+}
+
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.listMovie = viewModel.listMovie
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
         
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return list.count
+        return listMovie.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemMovieNowPlaying", for: indexPath) as! ItemMovieCollectionViewCell
-        cell.imageMovie.image = UIImage(named: list[indexPath.row])
+        let imageUrlString = NetworkConstant.shared.imageServerAddress + listMovie[indexPath.row].posterPath!
+        
+        
+        cell.imageMovie.layer.cornerRadius = 15
+        cell.imageMovie.sd_setImage(with: URL(string: imageUrlString))
         cell.labelNumber.text = String(indexPath.row)
         return cell
     }
@@ -34,5 +57,4 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         // code in here
         
     }
-        
 }
