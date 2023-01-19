@@ -7,17 +7,17 @@
 
 import UIKit
 
-class ControllerTabMovieViewController: UIViewController, UIScrollViewDelegate {
+class ViewPagerTabMovieViewController: UIViewController, UIScrollViewDelegate {
     
     
     @IBOutlet weak var uiSegmentControlTabMovie: UISegmentedControl!
     @IBOutlet weak var containerView: UIView!
     
-    private lazy var nowplayingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabMovie") as! TabMovieViewController
-    private lazy var upComingVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabMovie") as! TabMovieViewController
-    private lazy var topRatedVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabMovie") as! TabMovieViewController
-    private lazy var popularVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabMovie") as! TabMovieViewController
-
+    private lazy var mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    private lazy var nowplayingVC = mainStoryboard.instantiateViewController(withIdentifier: "tabMovie") as! TabMovieViewController
+    private lazy var upComingVC = mainStoryboard.instantiateViewController(withIdentifier: "tabMovie") as! TabMovieViewController
+    private lazy var topRatedVC = mainStoryboard.instantiateViewController(withIdentifier: "tabMovie") as! TabMovieViewController
+    private lazy var popularVC = mainStoryboard.instantiateViewController(withIdentifier: "tabMovie") as! TabMovieViewController
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.isPagingEnabled = true
@@ -25,10 +25,11 @@ class ControllerTabMovieViewController: UIViewController, UIScrollViewDelegate {
         return scrollView
     }()
     
+    
+    //begin override method
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.contentSize = CGSize(width: containerView.frame.width*4, height: 0)
-        view.addSubview(scrollView)
+        setUpView()
         setUpViewForTabMovie()
     }
     
@@ -38,7 +39,8 @@ class ControllerTabMovieViewController: UIViewController, UIScrollViewDelegate {
         scrollView.delegate = self
         addChildVCs()
     }
-            
+    
+    //call addiional function
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         switch targetContentOffset.pointee.x {
         case 0:
@@ -52,16 +54,19 @@ class ControllerTabMovieViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    
+    //private function for controller
     private func setUpViewForTabMovie() {
-        let listUpcoming = ["movie", "movie", "movie","movie", "movie", "movie",
-                                    "movie", "movie", "movie","movie", "movie", "movie",
-                                    "movie", "movie", "movie","movie", "movie", "movie",
-                                    "movie", "movie", "movie","movie", "movie", "movie",
-                                    "movie", "movie", "movie","movie", "movie", "movie",
-                                    "movie", "movie", "movie","movie", "movie", "movie"]
-        nowplayingVC.currentList = listUpcoming
-        topRatedVC.currentList = listUpcoming
-        popularVC.currentList = listUpcoming
+        nowplayingVC.nameTabMovie = HomeTab.NOW_PLAYING.rawValue
+        upComingVC.nameTabMovie = HomeTab.UPCOMING.rawValue
+        topRatedVC.nameTabMovie = HomeTab.TOP_RATED.rawValue
+        popularVC.nameTabMovie = HomeTab.POPULAR.rawValue
+    }
+    
+    private func setUpView() {
+        scrollView.contentSize = CGSize(width: containerView.frame.width*4, height: 0)
+        view.addSubview(scrollView)
+        uiSegmentControlTabMovie.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
     }
     
     private func addChildVCs() {
@@ -99,6 +104,8 @@ class ControllerTabMovieViewController: UIViewController, UIScrollViewDelegate {
     }
     
 
+    
+    //outlet action from storyboard
     @IBAction func onChangeTabMovie(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -113,3 +120,4 @@ class ControllerTabMovieViewController: UIViewController, UIScrollViewDelegate {
     }
     
 }
+
