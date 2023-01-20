@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     //todo: rename for meaning
     private var listMovie: [Movie] = []
     private var currentPage = 1
+    private var selectMovieId : Int = 0
     
     //outlet
     @IBOutlet weak var collectionView: UICollectionView!
@@ -72,8 +73,13 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
-        // code in here
-        
+        selectMovieId = listMovie[indexPath.row].id!
+        self.performSegue(withIdentifier: "showMovieDetail", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination.childViewControllerForPointerLock as? DetailViewController {
+            controller.movieId = selectMovieId
+        }
     }
 }
