@@ -19,7 +19,6 @@ class DetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print(movieId)
     }
     
     @IBAction func onBackScreen(_ sender: UIBarButtonItem) {
