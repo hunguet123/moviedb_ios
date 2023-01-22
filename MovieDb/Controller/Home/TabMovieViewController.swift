@@ -76,6 +76,6 @@ extension TabMovieViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectMovieId = listMovie[indexPath.row].id!
-        self.performSegue(withIdentifier: "showMovieDetail", sender: nil)
+        self.performSegue(withIdentifier: "showMovieDetail2", sender: nil)
     }
 }

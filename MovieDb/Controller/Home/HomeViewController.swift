@@ -74,7 +74,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectMovieId = listMovie[indexPath.row].id!
-        self.performSegue(withIdentifier: "showMovieDetail", sender: nil)
+        self.performSegue(withIdentifier: "showMovieDetail1", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

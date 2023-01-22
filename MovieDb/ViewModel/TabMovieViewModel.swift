@@ -19,7 +19,8 @@ class TabMovieViewModel {
                 self.movies.value = data.results
             case .failure(let error):
                 self.error.value = error
+            }
         }
     }
-    }
+        
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ItemMovieTableViewCell: UITableViewCell {
+class ItemMovieSearchCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageMovie: UIImageView!
     @IBOutlet weak var labelTitle: UILabel!
@@ -15,15 +15,4 @@ class ItemMovieTableViewCell: UITableViewCell {
     @IBOutlet weak var labelGenres: UILabel!
     @IBOutlet weak var labelReleaseDate: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

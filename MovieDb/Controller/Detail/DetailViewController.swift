@@ -15,11 +15,12 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(movieId)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//    }
     
     @IBAction func onBackScreen(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
