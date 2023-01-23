@@ -365,7 +365,7 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="til-gS-Zgw">
-                                <rect key="frame" x="-3" y="57" width="352" height="469"/>
+                                <rect key="frame" x="-3" y="56" width="351" height="469"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -411,6 +411,33 @@
                     <view key="view" contentMode="scaleToFill" id="JrO-8u-CMt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZvS-eC-vUt">
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image 2" translatesAutoresizingMaskIntoConstraints="NO" id="bUW-yD-9Sz">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="211"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie" translatesAutoresizingMaskIntoConstraints="NO" id="NxT-7R-OSQ">
+                                        <rect key="frame" x="29" y="151" width="95" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="aHo-fS-iNi"/>
+                                            <constraint firstAttribute="width" constant="95" id="mxR-uv-BKN"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bUW-yD-9Sz" firstAttribute="trailing" secondItem="e31-ek-IOJ" secondAttribute="trailing" id="Knw-SO-8Mn"/>
+                                    <constraint firstItem="NxT-7R-OSQ" firstAttribute="top" secondItem="e31-ek-IOJ" secondAttribute="top" constant="151" id="Xzs-L2-KJW"/>
+                                    <constraint firstItem="bUW-yD-9Sz" firstAttribute="top" secondItem="e31-ek-IOJ" secondAttribute="top" id="mqr-6V-izb"/>
+                                    <constraint firstItem="NxT-7R-OSQ" firstAttribute="leading" secondItem="e31-ek-IOJ" secondAttribute="leading" constant="29" id="pAP-kK-cFo"/>
+                                    <constraint firstItem="bUW-yD-9Sz" firstAttribute="leading" secondItem="e31-ek-IOJ" secondAttribute="leading" id="skW-pT-MxN"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Fmg-1n-JDq"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="e31-ek-IOJ"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="KVY-GM-ERU"/>
                         <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -431,18 +458,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipY-Qe-2Vi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3085" y="-889"/>
+            <point key="canvasLocation" x="3084.7328244274809" y="-889.43661971830988"/>
         </scene>
         <!--Tab Movie View Controller-->
         <scene sceneID="JLo-rA-EgB">
             <objects>
                 <viewController storyboardIdentifier="tabMovie" id="8OI-xo-laY" customClass="TabMovieViewController" customModule="MovieDb" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PmL-bn-dpK">
-                        <rect key="frame" x="0.0" y="0.0" width="352" height="469"/>
+                        <rect key="frame" x="0.0" y="0.0" width="351" height="469"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3eB-cw-7Bc">
-                                <rect key="frame" x="0.0" y="0.0" width="352" height="469"/>
+                                <rect key="frame" x="0.0" y="0.0" width="351" height="469"/>
                                 <color key="backgroundColor" red="0.22745098039215686" green="0.24705882352941178" blue="0.27843137254901962" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nWo-Hg-YTZ">
                                     <size key="itemSize" width="100" height="145"/>
@@ -500,7 +527,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SPt-bf-lOq"/>
+        <segue reference="gNL-xh-kF9"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="CalendarBlank" width="16" height="16"/>
@@ -511,6 +538,7 @@
         <image name="Ticket" width="16" height="16"/>
         <image name="back_button" width="20" height="20"/>
         <image name="bg_search_can_be_not_found" width="252" height="190"/>
+        <image name="image 2" width="375" height="211"/>
         <image name="movie" width="141" height="210"/>
         <image name="top_bar_right" width="18" height="24"/>
         <systemColor name="systemBackgroundColor">

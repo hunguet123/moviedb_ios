@@ -13,23 +13,28 @@ class SearchViewModel {
     var error: Observable<Error> = Observable(nil)
     
     func getSearchMovies(query: String, page: Int) {
-        ApiCaller.getSearchMovies(query: query, page: page) { result in
+        let urlString = NetworkConstant.shared.serverAddress +
+        "search/movie" + "?query=" + query + "&page=" + String(page) + "&api_key=" + NetworkConstant.shared.keyApi +
+        "&language=en-US"
+        URLSession.shared.request(urlString: urlString, expecting: MoviesResponse.self) { result in
             switch result {
             case .success(let data):
                 self.movies.value = data.results
             case .failure(let error):
-                self.error.value = error
-        }
+                print(error)
+            }
         }
     }
     
     func getGenres() {
-        ApiCaller.getGenres { result in
+        let urlString = NetworkConstant.shared.serverAddress +
+        "genre/movie/list" + "?api_key=" + NetworkConstant.shared.keyApi
+        URLSession.shared.request(urlString: urlString, expecting: GenresResponse.self) { result in
             switch result {
             case .success(let data):
                 self.genres.value = data.genres
             case .failure(let error):
-                self.error.value = error
+                print(error)
             }
         }
     }

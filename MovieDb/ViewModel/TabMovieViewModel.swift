@@ -13,12 +13,14 @@ class TabMovieViewModel {
     var error: Observable<Error> = Observable(nil)
     
     func getTabMovies(nameTabMovie: String, page: Int) {
-        ApiCaller.getTabMovies(nameTabMovie: nameTabMovie, page: page) { result in
+        let urlString = NetworkConstant.shared.serverAddress +
+        "movie/" + nameTabMovie + "?api_key=" + NetworkConstant.shared.keyApi + "&page=" + String(page)
+        URLSession.shared.request(urlString: urlString, expecting: MoviesResponse.self) { result in
             switch result {
             case .success(let data):
                 self.movies.value = data.results
             case .failure(let error):
-                self.error.value = error
+                print(error)
             }
         }
     }
