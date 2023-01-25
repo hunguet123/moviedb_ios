@@ -17,12 +17,8 @@ class TabMovieViewController: UIViewController {
     var nameTabMovie = ""
     private var currentPage = 1
     private var listMovie: [Movie] = []
+    private var selectMovieId: Int = 0
 
-    private let scrollView : UIScrollView = {
-        let scrollView = UIScrollView()
-        return scrollView
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
@@ -72,7 +68,14 @@ extension TabMovieViewController: UICollectionViewDataSource, UICollectionViewDe
         viewModel.getTabMovies(nameTabMovie: nameTabMovie, page: currentPage)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination.childViewControllerForPointerLock as? DetailViewController {
+            controller.movieId = selectMovieId
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.row)
+        selectMovieId = listMovie[indexPath.row].id!
+        self.performSegue(withIdentifier: "showMovieDetail2", sender: nil)
     }
 }
