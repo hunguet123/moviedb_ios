@@ -141,6 +141,7 @@ extension SearchViewController: UICollectionViewDelegate , UICollectionViewDataS
         self.performSegue(withIdentifier: "showMovieDetail3", sender: nil)
     }
     
+    // tranfer screen data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination.childViewControllerForPointerLock as? DetailViewController {
             controller.movieId = selectMovieId
