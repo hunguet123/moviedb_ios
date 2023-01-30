@@ -365,7 +365,7 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="til-gS-Zgw">
-                                <rect key="frame" x="-18" y="37" width="371" height="473"/>
+                                <rect key="frame" x="0.0" y="37" width="353" height="473"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -731,7 +731,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="v2P-bi-L2o">
-                                <rect key="frame" x="0.0" y="59" width="393" height="793"/>
+                                <rect key="frame" x="16" y="59" width="361" height="793"/>
                                 <color key="backgroundColor" red="0.2274509804" green="0.2470588235" blue="0.2784313725" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mld-SY-ac2">
                                     <size key="itemSize" width="100" height="145"/>
@@ -772,8 +772,8 @@
                         <viewLayoutGuide key="safeArea" id="8JM-xx-6aJ"/>
                         <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="v2P-bi-L2o" firstAttribute="leading" secondItem="8JM-xx-6aJ" secondAttribute="leading" id="9Wu-Ep-fLU"/>
-                            <constraint firstItem="v2P-bi-L2o" firstAttribute="trailing" secondItem="8JM-xx-6aJ" secondAttribute="trailing" id="SbC-2Z-Mpg"/>
+                            <constraint firstItem="v2P-bi-L2o" firstAttribute="leading" secondItem="8JM-xx-6aJ" secondAttribute="leading" constant="16" id="9Wu-Ep-fLU"/>
+                            <constraint firstItem="v2P-bi-L2o" firstAttribute="trailing" secondItem="8JM-xx-6aJ" secondAttribute="trailing" constant="-16" id="SbC-2Z-Mpg"/>
                             <constraint firstAttribute="bottom" secondItem="v2P-bi-L2o" secondAttribute="bottom" id="e0Y-54-zor"/>
                             <constraint firstItem="v2P-bi-L2o" firstAttribute="top" secondItem="8JM-xx-6aJ" secondAttribute="top" id="kqA-2N-SoO"/>
                         </constraints>
@@ -788,11 +788,11 @@
             <objects>
                 <viewController storyboardIdentifier="tabMovie" id="8OI-xo-laY" customClass="TabMovieViewController" customModule="MovieDb" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PmL-bn-dpK">
-                        <rect key="frame" x="0.0" y="0.0" width="371" height="473"/>
+                        <rect key="frame" x="0.0" y="0.0" width="353" height="473"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3eB-cw-7Bc">
-                                <rect key="frame" x="0.0" y="0.0" width="371" height="473"/>
+                                <rect key="frame" x="0.0" y="0.0" width="353" height="473"/>
                                 <color key="backgroundColor" red="0.22745098039215686" green="0.24705882352941178" blue="0.27843137254901962" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nWo-Hg-YTZ">
                                     <size key="itemSize" width="100" height="145"/>
