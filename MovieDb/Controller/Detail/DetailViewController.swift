@@ -19,36 +19,89 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var labelGenres: UILabel!
     @IBOutlet weak var viewPager: LZViewPager!
     @IBOutlet weak var scrollViewContainer: UIView!
-    
+    @IBOutlet weak var labelOriginTitle: UILabel!
     //property
     var movieId: Int?
     private var subControllers:[UIViewController] = []
     private lazy var mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
+    let viewModel = DetailViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        createViewPager()
         setUpView()
+        initData()
+        bindViewModel()
     }
     
     private func setUpView() {
-        print(UIScreen.main.bounds.height)
-        print(imageBackDrop.bounds.height)
-        print(labelGenres.bounds.height)
+//        print(UIScreen.main.bounds.height)
+//        print(imageBackDrop.bounds.height)
+//        print(labelGenres.bounds.height)
         //scrollViewContainer.heightAnchor.constraint(equalToConstant: 1500).isActive = true
     }
     
-    private func createViewPager() {
+    private func initData() {
+        viewModel.getMovieDetail(movieId: movieId!)
+    }
+    
+    private func bindViewModel() {
+        viewModel.movie.bind {[weak self] movie in
+            guard let self = self,
+                  let movie = movie else {
+                return
+            }
+            
+            self.imageBackDrop.layer.cornerRadius = 15
+            self.imagePoster.layer.cornerRadius = 15
+
+            if movie.backdropPath != nil {
+                let imageBackDropUrlString = NetworkConstant.shared.imageServerAddress + (movie.backdropPath!)
+                self.imageBackDrop.sd_setImage(with: URL(string: imageBackDropUrlString))
+            } else {
+                self.imageBackDrop.image = UIImage(named: "bg_image_not_found")
+            }
+            
+            if movie.posterPath != nil {
+                let imagePosterPathUrlString = NetworkConstant.shared.imageServerAddress + (movie.posterPath!)
+                self.imagePoster.sd_setImage(with: URL(string: imagePosterPathUrlString))
+            } else {
+                self.imagePoster.image = UIImage(named: "bg_image_not_found")
+            }
+            
+            self.labelReleaseYear.text = String(self.viewModel.getYearFromReleaseDate(releaseDate: movie.releaseDate!))
+            self.labelRunTimes.text = String(movie.runtime!) + "Minutes"
+            
+            //conver movie genres to string
+            var textGenre = ""
+            for genre in movie.genres! {
+                textGenre += genre.name + " "
+            }
+            //set text label genres
+            self.labelGenres.text = textGenre
+            
+            //set origin title movie
+            self.labelOriginTitle.text = movie.originalTitle
+            
+            //set content for tab member
+            self.createViewPager(movie: movie)
+        }
+    }
+    
+    private func createViewPager(movie: Movie) {
         viewPager.dataSource = self
         viewPager.delegate = self
         viewPager.hostController = self
-        let vc1 = mainStoryboard.instantiateViewController(withIdentifier: "AboutMovieViewController")
+        let vc1 = mainStoryboard.instantiateViewController(withIdentifier: "AboutMovieViewController") as! AboutMovieViewController
+        vc1.textAboutMovie = movie.overview
         vc1.title = "About Movie"
         
-        let vc2 = mainStoryboard.instantiateViewController(withIdentifier: "ReviewsViewController")
+        let vc2 = mainStoryboard.instantiateViewController(withIdentifier: "ReviewsViewController") as! ReviewsViewController
+        vc2.movieId = self.movieId
         vc2.title = "Reviews"
         
-        let vc3 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SimilarMovieViewController")
+        let vc3 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SimilarMovieViewController") as! SimilarMovieViewController
+        vc3.movieId = self.movieId
         vc3.title = "Similar Movie"
         
         subControllers = [vc1, vc2, vc3]

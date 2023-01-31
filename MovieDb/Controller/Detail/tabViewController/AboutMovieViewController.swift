@@ -12,14 +12,16 @@ class AboutMovieViewController: UIViewController {
     @IBOutlet weak var textViewAboutMovie: UITextView!
     
     
+    //property
+    var textAboutMovie: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
-        // Do any additional setup after loading the view.
     }
     
     private func setUpView() {
-        
+        textViewAboutMovie.text = textAboutMovie
     }
     
 

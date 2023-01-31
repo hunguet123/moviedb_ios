@@ -9,9 +9,11 @@ import UIKit
 
 class ReviewsViewController: UIViewController {
     
+    //property
+    var movieId: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     

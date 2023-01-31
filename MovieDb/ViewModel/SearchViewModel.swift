@@ -13,8 +13,9 @@ class SearchViewModel {
     var error: Observable<Error> = Observable(nil)
     
     func getSearchMovies(query: String, page: Int) {
+        let urlQuery = query.replacingOccurrences(of: " ", with: "%20")
         let urlString = NetworkConstant.shared.serverAddress +
-        "search/movie" + "?query=" + query + "&page=" + String(page) + "&api_key=" + NetworkConstant.shared.keyApi +
+        "search/movie" + "?query=" + urlQuery + "&page=" + String(page) + "&api_key=" + NetworkConstant.shared.keyApi +
         "&language=en-US"
         URLSession.shared.request(urlString: urlString, expecting: MoviesResponse.self) { [weak self] result in
             switch result {
