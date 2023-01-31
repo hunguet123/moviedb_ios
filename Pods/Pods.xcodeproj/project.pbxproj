@@ -355,7 +355,7 @@
 		740B3240E9E5433B262C0984D53381C4 /* LZViewPager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LZViewPager-dummy.m"; sourceTree = "<group>"; };
 		750C9C0825679BB03DD62212C4D3DF28 /* SDImageCacheDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCacheDefine.h; path = SDWebImage/Core/SDImageCacheDefine.h; sourceTree = "<group>"; };
 		7518CA86FCDE53D9B58AC72211894DD8 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Source/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
-		7579A4427A60772414CCC52FCE3DC38D /* Pods-MovieDb */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-MovieDb"; path = Pods_MovieDb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7579A4427A60772414CCC52FCE3DC38D /* Pods_MovieDb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieDb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7621D8F995729EE0D0A1815F0BB07BF4 /* SDImageFrame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageFrame.m; path = SDWebImage/Core/SDImageFrame.m; sourceTree = "<group>"; };
 		76CAF213B1B71B4DB07BA1AAE7FA3F58 /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Source/ConstraintItem.swift; sourceTree = "<group>"; };
 		778E33F27B7216B4B698F18F84A496CE /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraintItem.swift; path = Source/LayoutConstraintItem.swift; sourceTree = "<group>"; };
@@ -662,7 +662,7 @@
 			isa = PBXGroup;
 			children = (
 				230691787B5AC2E5316DF3050985E21C /* LZViewPager.framework */,
-				7579A4427A60772414CCC52FCE3DC38D /* Pods-MovieDb */,
+				7579A4427A60772414CCC52FCE3DC38D /* Pods_MovieDb.framework */,
 				B0B214D775196BA7CA8E17E53048A493 /* SDWebImage.framework */,
 				979486118B3E90C08386079D57962701 /* SnapKit.framework */,
 			);
@@ -1019,7 +1019,7 @@
 			);
 			name = "Pods-MovieDb";
 			productName = Pods_MovieDb;
-			productReference = 7579A4427A60772414CCC52FCE3DC38D /* Pods-MovieDb */;
+			productReference = 7579A4427A60772414CCC52FCE3DC38D /* Pods_MovieDb.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
