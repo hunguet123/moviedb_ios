@@ -9,6 +9,7 @@ import Foundation
 
 class DetailViewModel {
     var movie: Observable<Movie> = Observable(nil)
+    var reviews: Observable<[Review]> = Observable(nil)
     
     func getMovieDetail(movieId: Int) {
         let urlString = NetworkConstant.shared.serverAddress +
@@ -24,7 +25,19 @@ class DetailViewModel {
         }
     }
     
-    
+    func getMovieReviews(movieId: Int) {
+        let urlString = NetworkConstant.shared.serverAddress +
+        "movie/" + String(movieId) + "/reviews" + "?api_key=" + NetworkConstant.shared.keyApi +
+        "&language=en-US"
+        URLSession.shared.request(urlString: urlString, expecting: ReviewResponse.self) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self!.reviews.value = data.results
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     func getYearFromReleaseDate(releaseDate: String) -> Int {
         

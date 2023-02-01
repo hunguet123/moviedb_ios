@@ -10,7 +10,7 @@ import UIKit
 class SimilarMovieViewController: UIViewController {
 
     //property
-    var movieId: Int?
+    var viewModel: DetailViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -17,6 +17,9 @@
 		3F447A8E2972FA63003166AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F447A8C2972FA63003166AB /* Main.storyboard */; };
 		3F447A902972FA64003166AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F447A8F2972FA64003166AB /* Assets.xcassets */; };
 		3F447A932972FA64003166AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F447A912972FA64003166AB /* LaunchScreen.storyboard */; };
+		3F8FDD37298A1768006F93FD /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8FDD36298A1768006F93FD /* Author.swift */; };
+		3F8FDD39298A18FD006F93FD /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8FDD38298A18FD006F93FD /* Review.swift */; };
+		3F8FDD3B298A1A7C006F93FD /* ReviewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8FDD3A298A1A7C006F93FD /* ReviewsResponse.swift */; };
 		3FB325BE29881F1800BB0076 /* ItemReviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB325BD29881F1800BB0076 /* ItemReviewCollectionViewCell.swift */; };
 		3FB6DACD2974526800E6488B /* TabMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB6DACC2974526800E6488B /* TabMovieViewController.swift */; };
 		3FBDC0C52973DBB200CE43D1 /* ItemMovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FBDC0C42973DBB200CE43D1 /* ItemMovieCollectionViewCell.swift */; };
@@ -55,6 +58,9 @@
 		3F447A8F2972FA64003166AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F447A922972FA64003166AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F447A942972FA64003166AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F8FDD36298A1768006F93FD /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		3F8FDD38298A18FD006F93FD /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		3F8FDD3A298A1A7C006F93FD /* ReviewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsResponse.swift; sourceTree = "<group>"; };
 		3FB325BD29881F1800BB0076 /* ItemReviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemReviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		3FB6DACC2974526800E6488B /* TabMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMovieViewController.swift; sourceTree = "<group>"; };
 		3FBDC0C42973DBB200CE43D1 /* ItemMovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMovieCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -217,6 +223,9 @@
 				3FE6D3AC29782CA1004BA4C8 /* Movie.swift */,
 				3FE6D3AE29782CC7004BA4C8 /* Genre.swift */,
 				3FCBDEEC297D52B400973DFA /* GenresResponse.swift */,
+				3F8FDD36298A1768006F93FD /* Author.swift */,
+				3F8FDD38298A18FD006F93FD /* Review.swift */,
+				3F8FDD3A298A1A7C006F93FD /* ReviewsResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -371,6 +380,7 @@
 				3FDCF15E29866F9B0004CBFC /* SimilarMovieViewController.swift in Sources */,
 				3FE6D3A32977FBB3004BA4C8 /* HomeViewModel.swift in Sources */,
 				3FE6D3AB297806F3004BA4C8 /* MoviesResponse.swift in Sources */,
+				3F8FDD37298A1768006F93FD /* Author.swift in Sources */,
 				3F447A8B2972FA63003166AB /* ViewController.swift in Sources */,
 				3FE6D3B42978F1FD004BA4C8 /* TabMovieViewModel.swift in Sources */,
 				3F447A872972FA63003166AB /* AppDelegate.swift in Sources */,
@@ -381,9 +391,11 @@
 				3FE6D3B7297994CE004BA4C8 /* DetailViewController.swift in Sources */,
 				3FBDC0C52973DBB200CE43D1 /* ItemMovieCollectionViewCell.swift in Sources */,
 				3FFCEAB3297C75F100AC8820 /* ItemMovieSearchCollectionViewCell.swift in Sources */,
+				3F8FDD3B298A1A7C006F93FD /* ReviewsResponse.swift in Sources */,
 				3FDCF15C29866F8C0004CBFC /* ReviewsViewController.swift in Sources */,
 				3F447A892972FA63003166AB /* SceneDelegate.swift in Sources */,
 				3FB6DACD2974526800E6488B /* TabMovieViewController.swift in Sources */,
+				3F8FDD39298A18FD006F93FD /* Review.swift in Sources */,
 				3FE6D3B229789E14004BA4C8 /* Observable.swift in Sources */,
 				3FB325BE29881F1800BB0076 /* ItemReviewCollectionViewCell.swift in Sources */,
 				3FC4D1C0297542D3001CF87E /* HomeTab.swift in Sources */,

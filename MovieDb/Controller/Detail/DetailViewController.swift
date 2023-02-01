@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var labelOriginTitle: UILabel!
     //property
     var movieId: Int?
+    private var reviews: [Review]?
     private var subControllers:[UIViewController] = []
     private lazy var mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
@@ -31,6 +32,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         setUpView()
         initData()
+        createViewPager(viewModel: viewModel)
         bindViewModel()
     }
     
@@ -43,6 +45,7 @@ class DetailViewController: UIViewController {
     
     private func initData() {
         viewModel.getMovieDetail(movieId: movieId!)
+        viewModel.getMovieReviews(movieId: movieId!)
     }
     
     private func bindViewModel() {
@@ -82,26 +85,23 @@ class DetailViewController: UIViewController {
             
             //set origin title movie
             self.labelOriginTitle.text = movie.originalTitle
-            
-            //set content for tab member
-            self.createViewPager(movie: movie)
         }
     }
     
-    private func createViewPager(movie: Movie) {
+    private func createViewPager(viewModel: DetailViewModel) {
         viewPager.dataSource = self
         viewPager.delegate = self
         viewPager.hostController = self
         let vc1 = mainStoryboard.instantiateViewController(withIdentifier: "AboutMovieViewController") as! AboutMovieViewController
-        vc1.textAboutMovie = movie.overview
+        vc1.viewModel = self.viewModel
         vc1.title = "About Movie"
         
         let vc2 = mainStoryboard.instantiateViewController(withIdentifier: "ReviewsViewController") as! ReviewsViewController
-        vc2.movieId = self.movieId
+        vc2.viewModel = self.viewModel
         vc2.title = "Reviews"
         
         let vc3 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SimilarMovieViewController") as! SimilarMovieViewController
-        vc3.movieId = self.movieId
+        vc3.viewModel = self.viewModel
         vc3.title = "Similar Movie"
         
         subControllers = [vc1, vc2, vc3]

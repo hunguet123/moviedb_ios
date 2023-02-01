@@ -13,15 +13,22 @@ class AboutMovieViewController: UIViewController {
     
     
     //property
-    var textAboutMovie: String?
+    var viewModel: DetailViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        viewModel?.movie.bind({ movie in
+            self.textViewAboutMovie.text = movie?.overview
+        })
     }
     
     private func setUpView() {
-        textViewAboutMovie.text = textAboutMovie
+        //textViewAboutMovie.text = textAboutMovie
     }
     
 

@@ -38,4 +38,10 @@ class NetworkConstant {
         }
     }
 
+    public var URL_EXTERNAL_AVATAR: String {
+        get {
+            return "https://"
+        }
+    }
+    
 }
