@@ -23,7 +23,9 @@ class AboutMovieViewController: UIViewController {
     
     private func bindViewModel() {
         viewModel?.movie.bind({ movie in
-            self.textViewAboutMovie.text = movie?.overview
+            if movie != nil {
+                self.textViewAboutMovie.text = movie?.overview
+            }
         })
     }
     

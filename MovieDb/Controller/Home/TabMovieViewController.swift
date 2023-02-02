@@ -64,8 +64,10 @@ extension TabMovieViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        currentPage += 1
-        viewModel.getTabMovies(nameTabMovie: nameTabMovie, page: currentPage)
+        if scrollView.contentOffset.y > 0 {
+            currentPage += 1
+            viewModel.getTabMovies(nameTabMovie: nameTabMovie, page: currentPage)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var labelOriginTitle: UILabel!
     //property
     var movieId: Int?
+    private let currentPage: Int = 1
     private var reviews: [Review]?
     private var subControllers:[UIViewController] = []
     private lazy var mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -45,7 +46,8 @@ class DetailViewController: UIViewController {
     
     private func initData() {
         viewModel.getMovieDetail(movieId: movieId!)
-        viewModel.getMovieReviews(movieId: movieId!)
+        viewModel.getMovieReviews(movieId: movieId! , page: currentPage)
+        viewModel.getMovieSimilars(movieId: movieId!, page: currentPage)
     }
     
     private func bindViewModel() {

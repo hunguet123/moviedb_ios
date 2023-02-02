@@ -10,7 +10,8 @@ import Foundation
 class DetailViewModel {
     var movie: Observable<Movie> = Observable(nil)
     var reviews: Observable<[Review]> = Observable(nil)
-    
+    var similars: Observable<[Movie]> = Observable(nil)
+
     func getMovieDetail(movieId: Int) {
         let urlString = NetworkConstant.shared.serverAddress +
         "movie/" + String(movieId) + "?api_key=" + NetworkConstant.shared.keyApi +
@@ -25,14 +26,28 @@ class DetailViewModel {
         }
     }
     
-    func getMovieReviews(movieId: Int) {
+    func getMovieReviews(movieId: Int, page: Int) {
         let urlString = NetworkConstant.shared.serverAddress +
         "movie/" + String(movieId) + "/reviews" + "?api_key=" + NetworkConstant.shared.keyApi +
-        "&language=en-US"
+        "&language=en-US" + "&page=" + String(page)
         URLSession.shared.request(urlString: urlString, expecting: ReviewResponse.self) { [weak self] result in
             switch result {
             case .success(let data):
                 self!.reviews.value = data.results
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func getMovieSimilars(movieId: Int, page: Int) {
+        let urlString = NetworkConstant.shared.serverAddress +
+        "movie/" + String(movieId) + "/similar" + "?api_key=" + NetworkConstant.shared.keyApi +
+        "&language=en-US" + "&page=" + String(page)
+        URLSession.shared.request(urlString: urlString, expecting: MoviesResponse.self) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self!.similars.value = data.results
             case .failure(let error):
                 print(error)
             }

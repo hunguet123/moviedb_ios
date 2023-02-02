@@ -670,13 +670,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reviewer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLf-c4-2Fq">
-                                                    <rect key="frame" x="69.666666666666657" y="8" width="64.666666666666657" height="20.333333333333329"/>
+                                                    <rect key="frame" x="82" y="7.9999999999999982" width="64.666666666666686" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IT3-7w-pBa">
-                                                    <rect key="frame" x="69" y="36" width="300" height="166"/>
+                                                    <rect key="frame" x="81.333333333333343" y="36" width="287.66666666666663" height="166"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="166" id="Bg6-Ik-I9t"/>
@@ -690,7 +690,7 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mr-xs-GtH">
-                                                    <rect key="frame" x="18" y="60" width="27" height="13"/>
+                                                    <rect key="frame" x="18.000000000000004" y="60" width="39.333333333333343" height="13"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="27" id="zBb-l0-4CN"/>
                                                     </constraints>
@@ -738,6 +738,9 @@
                             <constraint firstItem="7KL-Nc-3Rz" firstAttribute="trailing" secondItem="TvV-YK-Zbf" secondAttribute="trailing" id="uce-0w-3xo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="TvV-YK-Zbf" id="3ZZ-B2-3gg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hd-TE-Lmk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -799,6 +802,10 @@
                             <constraint firstItem="v2P-bi-L2o" firstAttribute="top" secondItem="8JM-xx-6aJ" secondAttribute="top" id="kqA-2N-SoO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="v2P-bi-L2o" id="rYv-F7-cyB"/>
+                        <segue destination="8E0-iQ-vh0" kind="presentation" identifier="showMovieDetail4" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="0vl-aL-MlK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79U-1k-lvi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -871,7 +878,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SPt-bf-lOq"/>
+        <segue reference="0vl-aL-MlK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="CalendarBlank" width="16" height="16"/>

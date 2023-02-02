@@ -8,10 +8,14 @@
 import UIKit
 
 class ReviewsViewController: UIViewController {
+    //outlet
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     
     //property
     var viewModel: DetailViewModel?
-    private var reviews: [Review]?
+    private var reviews: [Review] = []
+    private var currentPage: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +23,11 @@ class ReviewsViewController: UIViewController {
     }
     
     private func bindViewModel() {
-        viewModel?.reviews.bind({ reviews in
-            self.reviews = reviews
+        viewModel?.reviews.bind({ [self] reviews in
+            if reviews!.count > 0 {
+                self.reviews.append(contentsOf: reviews!)
+                self.collectionView.reloadData()
+            }
         })
     }
     
@@ -28,12 +35,12 @@ class ReviewsViewController: UIViewController {
 
 extension ReviewsViewController : UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return reviews!.count
+        return reviews.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "itemReview", for: indexPath) as! ItemReviewCollectionViewCell
-        let review = reviews![indexPath.row]
+        let review = reviews[indexPath.row]
         cell.imageAvatar.layer.cornerRadius = 15
         var imageUrlString: String = ""
         if review.authorDetails.avatarPath != nil {
@@ -54,9 +61,17 @@ extension ReviewsViewController : UICollectionViewDelegate, UICollectionViewData
             let rating: Int = review.authorDetails.rating!
             cell.labelRating.text = String(rating)
         }
-        cell.textViewContent.text = reviews![indexPath.row].content
+        cell.textViewContent.text = reviews[indexPath.row].content
         return cell
     }
     
+    // endless scroll
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 0 && viewModel?.reviews.value?.isEmpty == false {
+            let movieId = viewModel?.movie.value?.id
+            viewModel?.getMovieReviews(movieId: movieId!, page: currentPage)
+            currentPage+=1
+        }
+    }
     
 }
