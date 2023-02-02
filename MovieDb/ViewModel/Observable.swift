@@ -8,6 +8,7 @@
 import Foundation
 
 class Observable<T> {
+    private var listener: ((T?) -> Void)?
     
     var value: T? {
         didSet {
@@ -20,8 +21,6 @@ class Observable<T> {
     init( _ value: T?) {
         self.value = value
     }
-    
-    private var listener: ((T?) -> Void)?
     
     func bind( _ listener: @escaping ((T?) -> Void)) {
         listener(value)

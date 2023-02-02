@@ -68,8 +68,10 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     //endless scroll
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        currentPage += 1
-        viewModel.getTrendingMovie(page: currentPage)
+        if scrollView.contentOffset.x > 0 {
+            currentPage += 1
+            viewModel.getTrendingMovie(page: currentPage)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -67,7 +67,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
                           let movies = movies else {
                         return
                     }
-            if movies.isEmpty == true {
+            if movies.isEmpty == true && self.listMovie.isEmpty == true {
                 self.imgSearchCanBeNotFound.isHidden = false
             } else {
                 self.imgSearchCanBeNotFound.isHidden = true
@@ -91,6 +91,8 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func onClick(_ sender: UIButton) {
+        self.listMovie = []
+        self.collectionView.reloadData()
         query = textFieldSearch.text!
         self.collectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         viewModel.getSearchMovies(query: query, page: currentPage)
@@ -141,6 +143,7 @@ extension SearchViewController: UICollectionViewDelegate , UICollectionViewDataS
         self.performSegue(withIdentifier: "showMovieDetail3", sender: nil)
     }
     
+    // tranfer screen data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination.childViewControllerForPointerLock as? DetailViewController {
             controller.movieId = selectMovieId
