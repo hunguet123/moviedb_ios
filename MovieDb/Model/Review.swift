@@ -8,11 +8,14 @@
 import Foundation
 
 struct Review: Codable {
-    let authorDetails: Author
-    let content: String
+    let author: String?
+    let authorDetails: Author?
+    let content: String?
     
     enum CodingKeys: String, CodingKey {
+        case author
         case authorDetails = "author_details"
         case content
     }
+    
 }

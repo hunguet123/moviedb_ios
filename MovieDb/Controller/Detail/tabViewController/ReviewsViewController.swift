@@ -43,22 +43,22 @@ extension ReviewsViewController : UICollectionViewDelegate, UICollectionViewData
         let review = reviews[indexPath.row]
         cell.imageAvatar.layer.cornerRadius = 15
         var imageUrlString: String = ""
-        if review.authorDetails.avatarPath != nil {
-            if ((review.authorDetails.avatarPath?.contains(NetworkConstant.shared.URL_EXTERNAL_AVATAR)) == true) {
-                let avatarPath = review.authorDetails.avatarPath
-                let startOfSentence = avatarPath?.index(avatarPath!.startIndex, offsetBy: 1)
-                imageUrlString = String(review.authorDetails.avatarPath![startOfSentence!...])
+        if review.authorDetails?.avatarPath != nil {
+            if ((review.authorDetails?.avatarPath!.contains(NetworkConstant.shared.URL_EXTERNAL_AVATAR)) == true) {
+                let avatarPath = review.authorDetails?.avatarPath
+                let startOfSentence = avatarPath!.index(avatarPath!.startIndex, offsetBy: 1)
+                imageUrlString = String((review.authorDetails?.avatarPath![startOfSentence...])!)
             } else {
-                imageUrlString = NetworkConstant.shared.imageServerAddress + review.authorDetails.avatarPath!
+                imageUrlString = NetworkConstant.shared.imageServerAddress + (review.authorDetails?.avatarPath!)!
             }
             cell.imageAvatar.sd_setImage(with: URL(string: imageUrlString))
         } else {
             cell.imageAvatar.image = UIImage(named: "bg_image_not_found")
         }
         
-        cell.labelAuthor.text = review.authorDetails.username
-        if review.authorDetails.rating != nil {
-            let rating: Int = review.authorDetails.rating!
+        cell.labelAuthor.text = review.authorDetails?.username
+        if review.authorDetails?.rating != nil {
+            let rating: Float = review.authorDetails?.rating ?? 0
             cell.labelRating.text = String(rating)
         }
         cell.textViewContent.text = reviews[indexPath.row].content
