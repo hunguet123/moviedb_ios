@@ -22,6 +22,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var labelOriginTitle: UILabel!
     //property
     var movieId: Int?
+    var isInsideDB: Bool = false
+    private var movie: Movie?
     private let currentPage: Int = 1
     private var reviews: [Review]?
     private var subControllers:[UIViewController] = []
@@ -38,16 +40,19 @@ class DetailViewController: UIViewController {
     }
     
     private func setUpView() {
-//        print(UIScreen.main.bounds.height)
-//        print(imageBackDrop.bounds.height)
-//        print(labelGenres.bounds.height)
-        //scrollViewContainer.heightAnchor.constraint(equalToConstant: 1500).isActive = true
+        
     }
     
     private func initData() {
         viewModel.getMovieDetail(movieId: movieId!)
         viewModel.getMovieReviews(movieId: movieId! , page: currentPage)
         viewModel.getMovieSimilars(movieId: movieId!, page: currentPage)
+        isInsideDB = viewModel.isMovieInsideById(movieId: movieId!)
+        if isInsideDB == false {
+            self.buttonSave.tintColor = .white
+        } else {
+            self.buttonSave.tintColor = .blue
+        }
     }
     
     private func bindViewModel() {
@@ -56,6 +61,8 @@ class DetailViewController: UIViewController {
                   let movie = movie else {
                 return
             }
+            
+            self.movie = movie
             
             self.imageBackDrop.layer.cornerRadius = 15
             self.imagePoster.layer.cornerRadius = 15
@@ -112,6 +119,20 @@ class DetailViewController: UIViewController {
         
     @IBAction func onBackScreen(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
+    }
+    
+    
+    @IBAction func onSaveMovie(_ sender: UIBarButtonItem) {
+        isInsideDB = viewModel.isMovieInsideById(movieId: movieId!)
+        if isInsideDB == false {
+            viewModel.saveMovie(_movie: movie!)
+            self.buttonSave.tintColor = .blue
+            
+        } else {
+            viewModel.deleteMovie(movieId: movieId!)
+            self.buttonSave.tintColor = .white
+        }
+        print(isInsideDB)
     }
     
 }

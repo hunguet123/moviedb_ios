@@ -10,11 +10,14 @@ import Foundation
 struct Author: Codable {
     let name: String?
     let username: String?
-    let avatarPath: String?
-    let rating: Int?
+    var avatarPath: String? = ""
+    var rating: Float? = 0
     
     enum CodingKeys: String, CodingKey {
-        case name, rating, username
+        case name
+        case username
         case avatarPath = "avatar_path"
-    }
+        case rating
+        }
+    
 }

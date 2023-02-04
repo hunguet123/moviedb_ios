@@ -22,10 +22,9 @@ extension URLSession {
             completionHandler(.failure(.urlError))
             return
         }
-        
         dataTask(with: url) { dataResponse, urlResponse, error in
             if error == nil,
-                let data = dataResponse,
+               let data = dataResponse,
                let resultData = try? JSONDecoder().decode(expecting, from: data) {
                 completionHandler(.success(resultData))
             } else {
