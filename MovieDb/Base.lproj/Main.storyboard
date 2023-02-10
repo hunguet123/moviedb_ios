@@ -518,7 +518,7 @@
                                 </connections>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="til-gS-Zgw">
-                                <rect key="frame" x="-7" y="32" width="357" height="472"/>
+                                <rect key="frame" x="-9" y="31" width="358" height="472"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -542,9 +542,10 @@
         <scene sceneID="0UQ-lf-sLy">
             <objects>
                 <navigationController id="8E0-iQ-vh0" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LYQ-Ik-X8Z">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="LYQ-Ik-X8Z">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
@@ -729,7 +730,7 @@
                             <constraint firstItem="ZvS-eC-vUt" firstAttribute="leading" secondItem="KVY-GM-ERU" secondAttribute="leading" id="PSw-QY-dZR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Detail" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="XJO-Qn-LKa">
+                    <navigationItem key="navigationItem" title="Detail" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="XJO-Qn-LKa">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="back_button" id="yG3-dT-TcF">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -972,11 +973,11 @@
             <objects>
                 <viewController storyboardIdentifier="tabMovie" id="8OI-xo-laY" customClass="TabMovieViewController" customModule="MovieDb" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PmL-bn-dpK">
-                        <rect key="frame" x="0.0" y="0.0" width="357" height="472"/>
+                        <rect key="frame" x="0.0" y="0.0" width="358" height="472"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3eB-cw-7Bc">
-                                <rect key="frame" x="0.0" y="0.0" width="357" height="472"/>
+                                <rect key="frame" x="0.0" y="0.0" width="358" height="472"/>
                                 <color key="backgroundColor" red="0.22745098039215686" green="0.24705882352941178" blue="0.27843137254901962" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nWo-Hg-YTZ">
                                     <size key="itemSize" width="100" height="145"/>
