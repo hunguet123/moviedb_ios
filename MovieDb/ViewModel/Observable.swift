@@ -11,7 +11,11 @@ class Observable<T> {
     private var listener: ((T?) -> Void)?
     
     var value: T? {
-        didSet {
+        willSet {
+//            let queue = DispatchQueue(label: "myqueueio", qos: .)
+//            queue.async {
+//                self.listener?(self.value)
+//            }
             DispatchQueue.main.async {
                 self.listener?(self.value)
             }
